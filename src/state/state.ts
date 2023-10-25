@@ -1,9 +1,9 @@
-import {atom} from "recoil";
-import {IUser} from "../@types/api";
+import { atom } from "recoil";
+import { IUser } from "../@types/api";
 
 export const userState = atom<IUser>({
-  key: 'user',
+  key: "user",
   default: {
     todos: [],
-  }
+  },
 });

@@ -1,21 +1,35 @@
 import styled from "styled-components";
-import {EButton} from "../../@types/enums";
+import { EButton } from "../../@types/enums";
 
 type Props = {
-  optionSelected: EButton,
+  optionSelected: EButton;
   selectButton: (option: EButton) => void;
-}
+};
 
-export const Actions = ({optionSelected, selectButton}: Props) => {
-  return <StyledActions>
-    <ActionButton $isSelected={optionSelected === EButton.all}
-                  onClick={() => selectButton(EButton.all)}>All</ActionButton>
-    <ActionButton $isSelected={optionSelected === EButton.active}
-                  onClick={() => selectButton(EButton.active)}>Active</ActionButton>
-    <ActionButton $isSelected={optionSelected === EButton.completed}
-                  onClick={() => selectButton(EButton.completed)}>Completed</ActionButton>
-  </StyledActions>
-}
+export const Actions = ({ optionSelected, selectButton }: Props) => {
+  return (
+    <StyledActions>
+      <ActionButton
+        $isSelected={optionSelected === EButton.all}
+        onClick={() => selectButton(EButton.all)}
+      >
+        All
+      </ActionButton>
+      <ActionButton
+        $isSelected={optionSelected === EButton.active}
+        onClick={() => selectButton(EButton.active)}
+      >
+        Active
+      </ActionButton>
+      <ActionButton
+        $isSelected={optionSelected === EButton.completed}
+        onClick={() => selectButton(EButton.completed)}
+      >
+        Completed
+      </ActionButton>
+    </StyledActions>
+  );
+};
 
 const StyledActions = styled.div`
   width: 50%;
@@ -30,8 +44,8 @@ const ActionButton = styled.button<{ $isSelected: boolean }>`
   width: fit-content;
   height: inherit;
 
-  border: ${(props) => (props.$isSelected ? '1px solid lightgrey' : 'none')};
-  background-color: ${(props) => (props.$isSelected ? 'whitesmoke' : 'white')};
+  border: ${(props) => (props.$isSelected ? "1px solid lightgrey" : "none")};
+  background-color: ${(props) => (props.$isSelected ? "whitesmoke" : "white")};
   line-height: 2rem;
 
   &:hover {
