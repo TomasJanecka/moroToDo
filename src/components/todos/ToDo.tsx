@@ -78,25 +78,23 @@ export const ToDo = ({ todo, setToDoToEditID, toDoToEditID }: Props) => {
 
 const StyledToDo = styled.div`
   width: 100%;
-  height: 2rem;
   display: flex;
   align-items: center;
   margin: 1px;
-  line-height: 2rem;
+  padding: 5px 10px 5px 5px;
 
   border-bottom: 1px solid black;
 `;
 
 const ToDoLabel = styled.span<{ $isDone: boolean }>`
   width: fit-content;
-  height: 2rem;
   display: block;
   opacity: ${(props) => (props.$isDone ? 0.5 : 1)};
   margin: 0;
+  padding-right: 0.5rem;
 
   text-decoration: ${(props) => (props.$isDone ? "line-through" : "none")};
   font-size: 1.1rem;
-  text-align: center;
 `;
 
 const DeleteIconWrapper = styled.div`

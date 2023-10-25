@@ -18,16 +18,16 @@ export const ActionsBar = ({ optionSelected, selectButton }: Props) => {
     setUser({ todos: updatedToDos });
   };
 
+  const numberOfDoneToDos = user.todos.filter(
+    (todo: IToDo) => !todo.isDone
+  ).length;
+
   return (
     <StyledActionBar>
       <ToDosLeft>
-        <ToDosLeftNumber>
-          {user.todos.filter((todo: IToDo) => !todo.isDone).length || 0}
-        </ToDosLeftNumber>
+        <ToDosLeftNumber>{numberOfDoneToDos}</ToDosLeftNumber>
         <ToDosLeftLabel>
-          {user.todos.filter((todo: IToDo) => !todo.isDone).length === 1
-            ? "item left"
-            : "items left"}
+          {numberOfDoneToDos === 1 ? "item left" : "items left"}
         </ToDosLeftLabel>
       </ToDosLeft>
       <Actions selectButton={selectButton} optionSelected={optionSelected} />
