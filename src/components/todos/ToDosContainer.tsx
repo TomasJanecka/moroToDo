@@ -36,6 +36,8 @@ export const ToDosContainer = () => {
           <ActionsBar
             optionSelected={todosOption}
             selectButton={setTodosOption}
+            setToDoToEditID={setToDoToEditID}
+            toDoToEditID={toDoToEditID}
           />
         </>
       )}

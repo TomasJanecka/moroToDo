@@ -8,9 +8,16 @@ import { EButton } from "../../@types/enums";
 type Props = {
   optionSelected: EButton;
   selectButton: (option: EButton) => void;
+  setToDoToEditID: (id: string) => void;
+  toDoToEditID: string;
 };
 
-export const ActionsBar = ({ optionSelected, selectButton }: Props) => {
+export const ActionsBar = ({
+  optionSelected,
+  selectButton,
+  setToDoToEditID,
+  toDoToEditID,
+}: Props) => {
   const [user, setUser] = useRecoilState(userState);
 
   const clearCompleted = () => {
@@ -18,16 +25,19 @@ export const ActionsBar = ({ optionSelected, selectButton }: Props) => {
     setUser({ todos: updatedToDos });
   };
 
-  const numberOfDoneToDos = user.todos.filter(
+  const numberOfDoneTodos = user.todos.filter(
     (todo: IToDo) => !todo.isDone
   ).length;
 
   return (
-    <StyledActionBar>
+    <StyledActionBar
+      onClick={() => setToDoToEditID("")}
+      $isActive={toDoToEditID !== ""}
+    >
       <ToDosLeft>
-        <ToDosLeftNumber>{numberOfDoneToDos}</ToDosLeftNumber>
+        <ToDosLeftNumber>{numberOfDoneTodos}</ToDosLeftNumber>
         <ToDosLeftLabel>
-          {numberOfDoneToDos === 1 ? "item left" : "items left"}
+          {numberOfDoneTodos === 1 ? "item left" : "items left"}
         </ToDosLeftLabel>
       </ToDosLeft>
       <Actions selectButton={selectButton} optionSelected={optionSelected} />
@@ -40,11 +50,16 @@ export const ActionsBar = ({ optionSelected, selectButton }: Props) => {
   );
 };
 
-const StyledActionBar = styled.div`
+const StyledActionBar = styled.div<{ $isActive: boolean }>`
   width: 100%;
   height: 3rem;
   display: flex;
   align-items: center;
+
+  &:hover {
+    background-color: ${(props) => (props.$isActive ? "#FFBFBF" : "none")};
+    opacity: 0.8;
+  }
 `;
 
 const ToDosLeft = styled.div`
