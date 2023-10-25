@@ -87,13 +87,13 @@ const CreateToDoInput = styled.input<{ $hasMargin: boolean }>`
 const EditToDoInput = styled.input`
   width: 100%;
   height: 2rem;
-  margin: 0;
-  padding: 0;
+  margin: 0 1rem 0 0;
+  padding: 0 0 0 5px;
 
   line-height: 2rem;
   border: none;
   font-size: 1.1rem;
-  background-color: whitesmoke;
+  background-color: lightgreen;
 
   &:focus {
     outline: none;
