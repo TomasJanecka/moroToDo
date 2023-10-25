@@ -77,7 +77,7 @@ export const ToDo = ({ todo, setToDoToEditID, toDoToEditID }: Props) => {
 };
 
 const StyledToDo = styled.div`
-  width: 100%;
+  width: 95%;
   display: flex;
   align-items: center;
   margin: 1px;

@@ -16,8 +16,8 @@ export const InputForm = ({ todo, formType, setToDoToEditID }: Props) => {
   const [inputText, setInputText] = useState("");
   const [user, setUser] = useRecoilState(userState);
 
-  const handleInputChange = (event: any) => {
-    setInputText(event.target.value);
+  const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
+    setInputText(event.currentTarget.value);
   };
 
   const clearInputText = () => {
