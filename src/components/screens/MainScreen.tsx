@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { Header } from "../header/Header";
-import { ToDoContainer } from "../todos/ToDoContainer";
+import { ToDosContainer } from "../todos/ToDosContainer";
 
 export const MainScreen = () => {
   return (
     <StyledMainScreen>
       <Header />
-      <ToDoContainer />
+      <ToDosContainer />
     </StyledMainScreen>
   );
 };

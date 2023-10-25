@@ -8,7 +8,7 @@ import { EButton } from "../../@types/enums";
 import { IToDo } from "../../@types/api";
 import { ToDos } from "./ToDos";
 
-export const ToDoContainer = () => {
+export const ToDosContainer = () => {
   const [user] = useRecoilState(userState);
   const [todosOption, setTodosOption] = useState(EButton.all);
   const [toDoToEditID, setToDoToEditID] = useState("");
