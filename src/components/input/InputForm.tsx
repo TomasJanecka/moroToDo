@@ -48,6 +48,7 @@ export const InputForm = ({ todo, formType, setToDoToEditID }: Props) => {
     <StyledForm onSubmit={onSubmitForm}>
       {formType === EFormType.create ? (
         <CreateToDoInput
+          $hasMargin={user.todos.length === 0}
           type={"text"}
           name={"createTodo"}
           placeholder={"What needs to be done?"}
@@ -69,10 +70,10 @@ export const InputForm = ({ todo, formType, setToDoToEditID }: Props) => {
   );
 };
 
-const CreateToDoInput = styled.input`
+const CreateToDoInput = styled.input<{ $hasMargin: boolean }>`
   width: 100%;
   height: 2rem;
-  margin: 0;
+  margin: ${(props) => (props.$hasMargin ? "0 0 0 2.75rem" : "0")};
 
   line-height: 2rem;
   border: none;
