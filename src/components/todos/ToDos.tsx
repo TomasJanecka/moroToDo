@@ -1,14 +1,17 @@
 import styled from "styled-components";
-import {IToDo} from "../@types/api";
+import {IToDo} from "../../@types/api";
 import {ToDo} from "./ToDo";
 
 type Props = {
-  todos: IToDo[]
+  todos: IToDo[];
+  setToDoToEditID: (id: string) => void;
+  toDoToEditID: string;
 }
 
-export const ToDos = ({todos}: Props) => {
+export const ToDos = ({todos, setToDoToEditID, toDoToEditID}: Props) => {
   const getToDos = () => {
-    return todos.map((todo, index) => <ToDo key={index} todo={todo}/>)
+    return todos.map((todo, index) => <ToDo key={index} todo={todo} setToDoToEditID={setToDoToEditID}
+                                            toDoToEditID={toDoToEditID}/>)
   }
 
   return <StyledToDos>{getToDos()}</StyledToDos>

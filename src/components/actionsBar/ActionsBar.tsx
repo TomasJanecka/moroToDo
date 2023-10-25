@@ -53,7 +53,13 @@ const ToDosLeft = styled.div`
   display: flex;
   margin-left: 5px;
 
+  line-height: 2rem;
+  font-size: 0.9rem;
   text-align: left;
+
+  @media (max-width: 350px) {
+    line-height: 1rem;
+  }
 `;
 
 const ToDosLeftNumber = styled.div`

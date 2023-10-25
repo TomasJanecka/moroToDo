@@ -1,16 +1,22 @@
-import {useRecoilState} from "recoil";
-import {userState} from "../../state/state";
-import {Header} from "../Header";
-import {Grid} from "@mui/material";
+import styled from "styled-components";
+import { Header } from "../header/Header";
+import { ToDoContainer } from "../todos/ToDoContainer";
 
-type Props = {}
+export const MainScreen = () => {
+  return (
+    <StyledMainScreen>
+      <Header />
+      <ToDoContainer />
+    </StyledMainScreen>
+  );
+};
 
-export const Tasks = ({}:Props) => {
-  const [user, setUser] = useRecoilState(userState);
-  
-  console.log(user?.tasks);
-  
-  return <Grid container spacing={0}>
-    <Header/>
-  </Grid>
-}
+const StyledMainScreen = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+`;

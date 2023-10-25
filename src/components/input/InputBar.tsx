@@ -2,13 +2,12 @@ import {InputForm} from "./InputForm";
 import styled from "styled-components";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {useRecoilState} from "recoil";
-import {userState} from "../state/state";
-import {IToDo} from "../@types/api";
+import {userState} from "../../state/state";
+import {IToDo} from "../../@types/api";
 import {useState} from "react";
+import {EFormType} from "../../@types/enums";
 
-type Props = {}
-
-export const InputBar = ({}: Props) => {
+export const InputBar = () => {
   const [user, setUser] = useRecoilState(userState);
   const [selectedAll, setSelectedAll] = useState(false);
 
@@ -29,7 +28,7 @@ export const InputBar = ({}: Props) => {
 
   return <StyledInputBar>
     <KeyboardArrowDownIcon onClick={selectAll} fontSize="large"/>
-    <InputForm/>
+    <InputForm todo={undefined} formType={EFormType.create} setToDoToEditID={undefined}/>
   </StyledInputBar>
 }
 
