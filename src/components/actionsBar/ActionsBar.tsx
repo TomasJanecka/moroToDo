@@ -95,7 +95,7 @@ const ClearCompletedButton = styled.button`
   margin: 0 5px 0 auto;
 
   border: none;
-  background-color: white;
+  background-color: inherit;
 
   &:hover {
     text-decoration: underline;
