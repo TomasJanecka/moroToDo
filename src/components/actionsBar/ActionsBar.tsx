@@ -41,7 +41,7 @@ export const ActionsBar = ({
         </ToDosLeftLabel>
       </ToDosLeft>
       <Actions selectButton={selectButton} optionSelected={optionSelected} />
-      {user.todos.filter((todo: IToDo) => todo.isDone).length > 0 && (
+      {numberOfDoneTodos > 0 && (
         <ClearCompletedButton onClick={clearCompleted}>
           Clear completed
         </ClearCompletedButton>
